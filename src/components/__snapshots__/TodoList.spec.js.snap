@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components TodoList renders correctly 1`] = `
+<ul
+  className="todo-list"
+  data-rbd-droppable-context-id="0"
+  data-rbd-droppable-id="droppable"
+>
+  <li
+    aria-labelledby="rbd-lift-instruction-0"
+    className=""
+    data-rbd-drag-handle-context-id="0"
+    data-rbd-drag-handle-draggable-id="0"
+    data-rbd-draggable-context-id="0"
+    data-rbd-draggable-id="0"
+    draggable={false}
+    onDragStart={[Function]}
+    onTransitionEnd={null}
+    style={
+      Object {
+        "transform": null,
+        "transition": null,
+      }
+    }
+    tabIndex={0}
+  >
+    <div
+      className="view"
+    >
+      <input
+        checked={false}
+        className="toggle"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        onDoubleClick={[Function]}
+      >
+        Use Redux
+      </label>
+      <button
+        className="destroy"
+        onClick={[Function]}
+      />
+    </div>
+  </li>
+  <li
+    aria-labelledby="rbd-lift-instruction-0"
+    className="completed"
+    data-rbd-drag-handle-context-id="0"
+    data-rbd-drag-handle-draggable-id="1"
+    data-rbd-draggable-context-id="0"
+    data-rbd-draggable-id="1"
+    draggable={false}
+    onDragStart={[Function]}
+    onTransitionEnd={null}
+    style={
+      Object {
+        "transform": null,
+        "transition": null,
+      }
+    }
+    tabIndex={0}
+  >
+    <div
+      className="view"
+    >
+      <input
+        checked={true}
+        className="toggle"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        onDoubleClick={[Function]}
+      >
+        Run the tests
+      </label>
+      <button
+        className="destroy"
+        onClick={[Function]}
+      />
+    </div>
+  </li>
+</ul>
+`;
