@@ -35,9 +35,9 @@ export default function todos(state = initialState, action) {
       );
 
     case REORDER_TODO: {
-      const [todo] = state.splice(action.sourceIndex, 1);
-      state.splice(action.destinationIndex, 0, todo);
-      return state;
+      //const [todo] = state.splice(action.sourceIndex, 1);
+      //state.splice(action.destinationIndex, 0, todo);
+      return action.todos;
     }
 
     case COMPLETE_TODO:

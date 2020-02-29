@@ -32,8 +32,14 @@ export const setVisibilityFilter = filter => ({
   type: types.SET_VISIBILITY_FILTER,
   filter
 });
-export const reorderTodo = result => ({
-  type: types.REORDER_TODO,
-  sourceIndex: result.source.index,
-  destinationIndex: result.destination.index
-});
+export const reorderTodo = result => {
+  let todos = JSON.parse(localStorage.getItem('todos')) || [];
+  const [todo] = todos.splice(result.source.index, 1);
+  todos.splice(result.destination.index, 0, todo);
+  localStorage.setItem('todos', JSON.stringify(todos));
+
+  return {
+    type: types.REORDER_TODO,
+    todos
+  };
+};
