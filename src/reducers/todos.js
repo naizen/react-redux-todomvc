@@ -12,7 +12,7 @@ import {
 //   completed: false,
 //   id: 0
 // }
-const initialState = JSON.parse(localStorage.getItem('todos'));
+const initialState = JSON.parse(localStorage.getItem('todos')) || [];
 
 export default function todos(state = initialState, action) {
   switch (action.type) {
