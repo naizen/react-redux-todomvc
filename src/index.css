@@ -1,0 +1,21 @@
+.new-todo {
+  font-weight: 400;
+}
+
+.todoapp input::-webkit-input-placeholder {
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.todoapp input::-moz-placeholder {
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.todoapp input::input-placeholder {
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.3);
+}
