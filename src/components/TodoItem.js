@@ -1,37 +1,38 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
-import TodoTextInput from './TodoTextInput'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import TodoTextInput from './TodoTextInput';
 
 export default class TodoItem extends Component {
   static propTypes = {
     todo: PropTypes.object.isRequired,
     editTodo: PropTypes.func.isRequired,
     deleteTodo: PropTypes.func.isRequired,
-    completeTodo: PropTypes.func.isRequired
-  }
+    completeTodo: PropTypes.func.isRequired,
+    index: PropTypes.number.isRequired
+  };
 
   state = {
     editing: false
-  }
+  };
 
   handleDoubleClick = () => {
-    this.setState({ editing: true })
-  }
+    this.setState({ editing: true });
+  };
 
   handleSave = (id, text) => {
     if (text.length === 0) {
-      this.props.deleteTodo(id)
+      this.props.deleteTodo(id);
     } else {
-      this.props.editTodo(id, text)
+      this.props.editTodo(id, text, this.props.index);
     }
-    this.setState({ editing: false })
-  }
+    this.setState({ editing: false });
+  };
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props
+    const { todo, completeTodo, deleteTodo } = this.props;
 
-    let element
+    let element;
     if (this.state.editing) {
       element = (
         <TodoTextInput
@@ -39,7 +40,7 @@ export default class TodoItem extends Component {
           editing={this.state.editing}
           onSave={text => this.handleSave(todo.id, text)}
         />
-      )
+      );
     } else {
       element = (
         <div className="view">
@@ -52,7 +53,7 @@ export default class TodoItem extends Component {
           <label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
           <button className="destroy" onClick={() => deleteTodo(todo.id)} />
         </div>
-      )
+      );
     }
 
     return (
@@ -67,6 +68,6 @@ export default class TodoItem extends Component {
       >
         {element}
       </li>
-    )
+    );
   }
 }

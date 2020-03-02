@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import TodoItem from './TodoItem'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import React from 'react';
+import PropTypes from 'prop-types';
+import TodoItem from './TodoItem';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const TodoList = ({ filteredTodos, actions }) => {
   const onDragEnd = result => {
     if (!result.destination) {
-      return
+      return;
     }
-    actions.reorderTodo(result)
-  }
+    actions.reorderTodo(result);
+  };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
@@ -29,6 +29,7 @@ const TodoList = ({ filteredTodos, actions }) => {
                     dragHandleProps={provided.dragHandleProps}
                     key={todo.id}
                     todo={todo}
+                    index={index}
                     {...actions}
                   />
                 )}
@@ -39,8 +40,8 @@ const TodoList = ({ filteredTodos, actions }) => {
         )}
       </Droppable>
     </DragDropContext>
-  )
-}
+  );
+};
 
 TodoList.propTypes = {
   filteredTodos: PropTypes.arrayOf(
@@ -51,6 +52,6 @@ TodoList.propTypes = {
     }).isRequired
   ).isRequired,
   actions: PropTypes.object.isRequired
-}
+};
 
-export default TodoList
+export default TodoList;
