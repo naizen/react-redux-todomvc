@@ -8,7 +8,7 @@ export const addTodo = text => {
     id: maxId + 1,
     completed: false
   };
-  todos.push(newTodo);
+  todos.unshift(newTodo);
   localStorage.setItem('todos', JSON.stringify(todos));
   return { type: types.ADD_TODO, text };
 };
