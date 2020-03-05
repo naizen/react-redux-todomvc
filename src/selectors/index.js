@@ -6,7 +6,7 @@ import {
 } from '../constants/TodoFilters';
 
 const getVisibilityFilter = state => state.visibilityFilter;
-const getTodos = state => state.todos;
+const getTodos = state => state.todos.present;
 
 export const getVisibleTodos = createSelector(
   [getVisibilityFilter, getTodos],

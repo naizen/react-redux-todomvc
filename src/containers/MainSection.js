@@ -1,19 +1,26 @@
-import { connect } from 'react-redux'
-import * as TodoActions from '../actions'
-import { bindActionCreators } from 'redux'
-import MainSection from '../components/MainSection'
-import { getCompletedTodoCount } from '../selectors'
+import { connect } from 'react-redux';
+import * as TodoActions from '../actions';
+import { bindActionCreators } from 'redux';
+import { ActionCreators as UndoActionCreators } from 'redux-undo';
+import MainSection from '../components/MainSection';
+import { getCompletedTodoCount } from '../selectors';
 
 const mapStateToProps = state => ({
-	todosCount: state.todos.length,
-	completedCount: getCompletedTodoCount(state)
-})
+  todosCount: state.todos.present.length,
+  completedCount: getCompletedTodoCount(state),
+  canUndo: state.todos.past.length > 0,
+  canRedo: state.todos.future.length > 0
+});
 
 const mapDispatchToProps = dispatch => ({
-	actions: bindActionCreators(TodoActions, dispatch)
-})
+  actions: {
+    ...bindActionCreators(TodoActions, dispatch),
+    undo: () => dispatch(UndoActionCreators.undo()),
+    redo: () => dispatch(UndoActionCreators.redo())
+  }
+});
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(MainSection)
+  mapStateToProps,
+  mapDispatchToProps
+)(MainSection);

@@ -1,21 +1,64 @@
+body {
+  background-color: #121212;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.toggle-all + label:before {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.todo-list li {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.todo-list li label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.todo-list li.completed label {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.todoapp h1 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.todoapp {
+  background: #272c34;
+}
+
 .new-todo {
   font-weight: 400;
+}
+
+.main {
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .todoapp input::-webkit-input-placeholder {
   font-style: normal;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .todoapp input::-moz-placeholder {
   font-style: normal;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .todoapp input::input-placeholder {
   font-style: normal;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.footer:before {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #272c34,
+    0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #272c34,
+    0 17px 2px -6px rgba(0, 0, 0, 0.2);
 }

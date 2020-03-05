@@ -7,14 +7,11 @@ import {
   COMPLETE_ALL_TODOS,
   CLEAR_COMPLETED
 } from '../constants/ActionTypes';
-// {
-//   text: 'Use Redux',
-//   completed: false,
-//   id: 0
-// }
+import undoable, { distinctState } from 'redux-undo';
+
 const initialState = JSON.parse(localStorage.getItem('todos')) || [];
 
-export default function todos(state = initialState, action) {
+function todos(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -59,3 +56,7 @@ export default function todos(state = initialState, action) {
       return state;
   }
 }
+
+const undoableTodos = undoable(todos);
+
+export default undoableTodos;
