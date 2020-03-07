@@ -8,7 +8,10 @@ const TodoList = ({ filteredTodos, actions }) => {
     if (!result.destination) {
       return;
     }
-    actions.reorderTodo(result);
+
+    const sourceTodo = filteredTodos[result.source.index];
+    const destTodo = filteredTodos[result.destination.index];
+    actions.reorderTodo(sourceTodo, destTodo);
   };
 
   return (

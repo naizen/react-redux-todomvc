@@ -50,15 +50,17 @@ export const setVisibilityFilter = filter => ({
   type: types.SET_VISIBILITY_FILTER,
   filter
 });
-export const reorderTodo = result => {
+export const reorderTodo = (sourceTodo, destTodo) => {
   let todos = JSON.parse(localStorage.getItem('todos')) || [];
-  const [todo] = todos.splice(result.source.index, 1);
-  todos.splice(result.destination.index, 0, todo);
+  const sourceIndex = todos.findIndex(todo => todo.id === sourceTodo.id);
+  const destIndex = todos.findIndex(todo => todo.id === destTodo.id);
+  const [todo] = todos.splice(sourceIndex, 1);
+  todos.splice(destIndex, 0, todo);
   localStorage.setItem('todos', JSON.stringify(todos));
 
   return {
     type: types.REORDER_TODO,
-    sourceIndex: result.source.index,
-    destIndex: result.destination.index
+    sourceIndex,
+    destIndex
   };
 };
