@@ -58,6 +58,7 @@ export const reorderTodo = result => {
 
   return {
     type: types.REORDER_TODO,
-    todos
+    sourceIndex: result.source.index,
+    destIndex: result.destination.index
   };
 };

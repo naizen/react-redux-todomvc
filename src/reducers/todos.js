@@ -32,9 +32,10 @@ function todos(state = initialState, action) {
       );
 
     case REORDER_TODO: {
-      //const [todo] = state.splice(action.sourceIndex, 1);
-      //state.splice(action.destinationIndex, 0, todo);
-      return action.todos;
+      const updatedState = [...state];
+      const [todo] = updatedState.splice(action.sourceIndex, 1);
+      updatedState.splice(action.destIndex, 0, todo);
+      return updatedState;
     }
 
     case COMPLETE_TODO:
